@@ -5,6 +5,7 @@
 		"File::Spec 3.0" ,
 		"Module::Install 1.00" ,
 		"Module::Install::RDF 0.001" ,
+		"Module::Install::Admin::RDF 0.001" ,
 		"RDF::Trine 0.112" ,
 		"URI::file 4.0" ;
 	:test_requires
