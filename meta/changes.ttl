@@ -25,3 +25,14 @@ my:v_0-002
 		dcs:versus my:v_0-001 ;
 		dcs:item   [ a dcs:Packaging ; rdfs:label "Upgrade Module::Package::RDF version."@en ] 
 	] .
+
+my:project :release my:v_0-003 .
+my:v_0-003
+	a               :Version ;
+	dc:issued       "2011-11-26"^^xsd:date ;
+	:revision       "0.003"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Module-Install-DOAP-0.003.tar.gz> ;
+	dcs:changeset [
+		dcs:versus my:v_0-002 ;
+		dcs:item   [ rdfs:label "Use Module::Install::RDF's new heuristics for detecting the doap:Project URI."@en ] 
+	] .

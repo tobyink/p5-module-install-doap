@@ -4,12 +4,10 @@ use 5.008;
 use parent qw(Module::Install::Base);
 use strict;
 
-use File::Spec;
-use Module::Install::Admin::RDF;
+use Module::Install::Admin::RDF 0.003;
 use RDF::Trine;
-use URI::file;
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 use RDF::Trine::Namespace qw[RDF RDFS OWL XSD];
 my $CPAN = RDF::Trine::Namespace->new('http://purl.org/NET/cpan-uri/terms#');
@@ -25,8 +23,7 @@ sub doap_metadata
 	
 	unless (defined $uri)
 	{
-		my @dirs = File::Spec->splitdir(File::Spec->rel2abs(File::Spec->curdir));
-		$uri = sprintf('http://purl.org/NET/cpan-uri/dist/%s/project', $dirs[-1]);
+		$uri = Module::Install::Admin::RDF::rdf_project_uri($self);
 	}
 	unless (ref $uri)
 	{
