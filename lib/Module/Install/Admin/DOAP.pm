@@ -1,13 +1,13 @@
 package Module::Install::Admin::DOAP;
 
 use 5.008;
-use parent qw(Module::Install::Base);
+use base qw(Module::Install::Base);
 use strict;
 
 use Module::Install::Admin::RDF 0.003;
 use RDF::Trine;
 
-our $VERSION = '0.003';
+our $VERSION = '0.004';
 
 use RDF::Trine::Namespace qw[RDF RDFS OWL XSD];
 my $CPAN = RDF::Trine::Namespace->new('http://purl.org/NET/cpan-uri/terms#');

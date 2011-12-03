@@ -34,5 +34,17 @@ my:v_0-003
 	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Module-Install-DOAP-0.003.tar.gz> ;
 	dcs:changeset [
 		dcs:versus my:v_0-002 ;
-		dcs:item   [ rdfs:label "Use Module::Install::RDF's new heuristics for detecting the doap:Project URI."@en ] 
+		dcs:item   [ rdfs:label "Use Module::Install::RDF's new heuristics for detecting the doap:Project URI."@en ] ;
+		dcs:item   [ rdfs:label "use parent" ; a dcs:Regression ] 
+	] .
+
+my:project :release my:v_0-004 .
+my:v_0-004
+	a               :Version ;
+	dc:issued       "2011-12-03"^^xsd:date ;
+	:revision       "0.004"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Module-Install-DOAP-0.004.tar.gz> ;
+	dcs:changeset [
+		dcs:versus my:v_0-003 ;
+		dcs:item   [ rdfs:label "use base" ; a dcs:Bugfix ] 
 	] .
