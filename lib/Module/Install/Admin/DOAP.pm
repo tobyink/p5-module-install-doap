@@ -191,7 +191,7 @@ sub doap_metadata
 	$metadata->(authors => sort values %authors);
 
 	{
-		my @terms = qw(requires build_requires configure_requires recommends test_requires);
+		my @terms = qw(requires build_requires configure_requires test_requires recommends provides);
 		foreach my $term (@terms)
 		{
 			foreach my $dep ($model->objects($uri, $CPAN->$term))
@@ -211,7 +211,7 @@ sub doap_metadata
 	}
 
 	{
-		my @terms = qw(abstract_from author_from license_from perl_version_from readme_from version_from
+		my @terms = qw(abstract_from author_from license_from perl_version_from readme_from requires_from version_from
 			no_index install_script requires_external_bin);
 		TERM: foreach my $term (@terms)
 		{
