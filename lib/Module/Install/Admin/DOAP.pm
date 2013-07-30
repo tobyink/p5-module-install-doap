@@ -215,18 +215,18 @@ sub doap_metadata
 	{
 		foreach my $level (qw/ requirement recommendation suggestion /)
 		{
-			my $term = "$phase\_$level";
+			my $term = "${phase}-${level}";
 			my $mi_term = {
-				configure_requirement  => 'configure_requires',
-				build_requirement      => 'build_requires',
-				test_requirement       => 'test_requires',
-				runtime_requirement    => 'requires',
-				build_recommendation   => 'recommends',
-				test_recommendation    => 'recommends',
-				runtime_recommendation => 'recommends',
+				'configure-requirement'  => 'configure_requires',
+				'build-requirement'      => 'build_requires',
+				'test-requirement'       => 'test_requires',
+				'runtime-requirement'    => 'requires',
+				'build-recommendation'   => 'recommends',
+				'test-recommendation'    => 'recommends',
+				'runtime-recommendation' => 'recommends',
 			}->{$term} or next;
 			
-			foreach my $dep ( $model->objects($uri, $DEPS->$term) )
+			foreach my $dep ( $model->objects($uri, $DEPS->uri($term)) )
 			{
 				if ($dep->is_literal)
 				{
