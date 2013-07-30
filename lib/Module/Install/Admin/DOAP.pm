@@ -13,6 +13,7 @@ use RDF::Trine::Namespace qw[RDF RDFS OWL XSD];
 my $CPAN = RDF::Trine::Namespace->new('http://purl.org/NET/cpan-uri/terms#');
 my $DC   = RDF::Trine::Namespace->new('http://purl.org/dc/terms/');
 my $DOAP = RDF::Trine::Namespace->new('http://usefulinc.com/ns/doap#');
+my $DEPS = RDF::Trine::Namespace->new('http://ontologi.es/doap-deps#');
 my $FOAF = RDF::Trine::Namespace->new('http://xmlns.com/foaf/0.1/');
 my $NFO  = RDF::Trine::Namespace->new('http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#');
 my $SKOS = RDF::Trine::Namespace->new('http://www.w3.org/2004/02/skos/core#');
@@ -208,6 +209,47 @@ sub doap_metadata
 				}
 			}
 		}
+	}
+
+	foreach my $phase (qw/ configure build test runtime develop /)
+	{
+		foreach my $level (qw/ requirement recommendation suggestion /)
+		{
+			my $term = "$phase\_$level";
+			my $mi_term = {
+				configure_requirement  => 'configure_requires',
+				build_requirement      => 'build_requires',
+				test_requirement       => 'test_requires',
+				runtime_requirement    => 'requires',
+				build_recommendation   => 'recommends',
+				test_recommendation    => 'recommends',
+				runtime_recommendation => 'recommends',
+			}->{$term} or next;
+			
+			foreach my $dep ( $model->objects($uri, $DEPS->$term) )
+			{
+				if ($dep->is_literal)
+				{
+					warn $DEPS->$term . " expects a resource, not literal $dep!";
+					next;
+				}
+				
+				foreach my $ident ( $model->objects($dep, $DEPS->on) )
+				{
+					unless ($ident->is_literal
+					and     $ident->has_datatype
+					and     $ident->literal_datatype eq $DEPS->CpanIdentifier->uri)
+					{
+						warn "Dunno what to do with ${ident}... we'll figure something out eventually.";
+						next;
+					}
+					
+					my ($mod, $ver) = split /\s+/, $ident->literal_value;
+					$ver ||= 0;
+					$metadata->($mi_term => $mod => $ver);
+				}
+			}
+		}			
 	}
 
 	{

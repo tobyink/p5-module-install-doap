@@ -1,10 +1,19 @@
-@prefix : <http://purl.org/NET/cpan-uri/terms#> .
+@prefix : <http://ontologi.es/doap-deps#> .
 
 <http://purl.org/NET/cpan-uri/dist/Module-Install-DOAP/project>
-	:requires
-		"Module::Install 1.00" ,
-		"Module::Install::RDF 0.004" ,
-		"Module::Install::Admin::RDF 0.004" ,
-		"RDF::Trine 0.133" ;
-	:test_requires
-		"Test::More 0.61" .
+	:runtime_requirement [
+		:on "Module::Install 1.00"^^:CpanIdentifier;
+	];
+	:runtime_requirement [
+		:on "Module::Install::RDF 0.004"^^:CpanIdentifier;
+	];
+	:runtime_requirement [
+		:on "Module::Install::Admin::RDF 0.004"^^:CpanIdentifier;
+	];
+	:runtime_requirement [
+		:on "RDF::Trine 0.133"^^:CpanIdentifier;
+	];
+	:test_requirement [
+		:on "Test::More 0.96"^^:CpanIdentifier;
+	];
+.
