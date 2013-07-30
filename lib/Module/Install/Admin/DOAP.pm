@@ -238,7 +238,7 @@ sub doap_metadata
 				{
 					unless ($ident->is_literal
 					and     $ident->has_datatype
-					and     $ident->literal_datatype eq $DEPS->CpanIdentifier->uri)
+					and     $ident->literal_datatype eq $DEPS->CpanId->uri)
 					{
 						warn "Dunno what to do with ${ident}... we'll figure something out eventually.";
 						next;
