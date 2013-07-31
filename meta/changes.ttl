@@ -48,3 +48,14 @@ my:v_0-004
 		dcs:versus my:v_0-003 ;
 		dcs:item   [ rdfs:label "use base" ; a dcs:Bugfix ] 
 	] .
+
+my:project :release my:v_0-005 .
+my:v_0-005
+	a               :Version ;
+	dc:issued       "2013-07-31"^^xsd:date ;
+	:revision       "0.005"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Module-Install-DOAP-0.005.tar.gz> ;
+	dcs:changeset [
+		dcs:versus my:v_0-004 ;
+		dcs:item   [ rdfs:label "Support http://ontologi.es/doap-deps, and deprecate old dependency predicates." ; a dcs:Update ] ;
+	] .
