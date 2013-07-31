@@ -68,5 +68,5 @@ my:v_0-006
 	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Module-Install-DOAP-0.006.tar.gz> ;
 	dcs:changeset [
 		dcs:versus my:v_0-005 ;
-		dcs:item   [ rdfs:label "Oops; hyphens." ; a dcs:Bugfix ] ;
+		dcs:item   [ rdfs:label "Oops; hyphens." ; a dcs:Bugfix, dcs:Packaging ] ;
 	] .

@@ -2,18 +2,18 @@
 
 <http://purl.org/NET/cpan-uri/dist/Module-Install-DOAP/project>
 	:runtime-requirement [
-		:on "Module::Install 1.00"^^:CpanIdentifier;
+		:on "Module::Install 1.00"^^:CpanId;
 	];
 	:runtime-requirement [
-		:on "Module::Install::RDF 0.004"^^:CpanIdentifier;
+		:on "Module::Install::RDF 0.004"^^:CpanId;
 	];
 	:runtime-requirement [
-		:on "Module::Install::Admin::RDF 0.004"^^:CpanIdentifier;
+		:on "Module::Install::Admin::RDF 0.004"^^:CpanId;
 	];
 	:runtime-requirement [
-		:on "RDF::Trine 0.133"^^:CpanIdentifier;
+		:on "RDF::Trine 0.133"^^:CpanId;
 	];
 	:test-requirement [
-		:on "Test::More 0.96"^^:CpanIdentifier;
+		:on "Test::More 0.96"^^:CpanId;
 	];
 .
