@@ -197,6 +197,7 @@ sub doap_metadata
 		{
 			foreach my $dep ($model->objects($uri, $CPAN->$term))
 			{
+				warn "$term is deprecated in favour of http://ontologi.es/doap-deps#";
 				if ($dep->is_literal)
 				{
 					my ($mod, $ver) = split /\s+/, $dep->literal_value;
